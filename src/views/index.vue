@@ -1,15 +1,12 @@
 <template>
-  <TodoList msg="Vite + Vue" />
+  <div>123</div>
 </template>
 
 <script lang="ts">
 import { defineComponent } from 'vue'
-import TodoList from './views/index.vue'
 
 export default defineComponent({
-  components: {
-    TodoList
-  },
+  name: 'TodoList',
   setup() {
     return {}
   }
