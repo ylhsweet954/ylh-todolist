@@ -1,18 +1,9 @@
 ### todolist
 
-#### 数据格式
+#### 待完善功能
 
-```json
-{
-  "todoList": [
-    {
-      "date": 1,
-      "content": "吃饭",
-      "type": "生活",
-      "done": false
-    }
-  ],
-  "title": "吃饭",
-  "done": false
-}
-```
+1、导入，使用表格进行导入，导入之后转成json格式，方便后续操作
+2、导出，将本地的数据导出为Excel表格，可再次导入
+3、对于todoList的增删查改都要修改本地数据
+4、可以修改todoList
+5、查询，根据条件查询数据
