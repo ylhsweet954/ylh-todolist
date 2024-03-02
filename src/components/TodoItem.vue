@@ -15,10 +15,9 @@
 </template>
 
 <script lang="ts">
-import { defineComponent, watch, ref } from 'vue'
+import { defineComponent, watch, ref, PropType } from 'vue'
 import { TodoItem } from '../type'
 import { DeleteFilled } from '@element-plus/icons-vue'
-import dayjs from 'dayjs'
 import { cloneDeep } from 'lodash-es'
 import { ElMessage, ElMessageBox } from 'element-plus'
 
@@ -47,7 +46,7 @@ export default defineComponent({
     const deleteItem = () => {
       emit('deleteItem', props.data.id)
     }
-    const checkTodo = (val) => {
+    const checkTodo = (val: boolean) => {
       if (!val) {
         ElMessageBox.confirm('还没做完？', '', {
           confirmButtonText: '是的',

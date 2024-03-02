@@ -1,16 +1,33 @@
-<!doctype html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Vite + Vue + TS</title>
-  </head>
-  <body>
-    <div id="app"></div>
-    <script type="module" src="/src/main.ts"></script>
-  </body>
-</html>
+### 解决不能直接打开index.html文件的问题
+
+可以安装兼容的插件 @vitejs/plugin-legacy
+
+```
+pnpm install @vitejs/plugin-legacy -D
+```
+
+然后在 vite.config.ts 中使用该插件：
+
+```
+// 引入@vitejs/plugin-legacy
+import legacy from '@vitejs/plugin-legacy';
+export default defineConfig({
+  plugins: [
+    vue(),
+    legacy({
+      targets: ['defaults', 'not IE 11']
+    })
+  ],
+  base: './'
+})
+```
+
+注意要加这个 base: './'
+
+处理<script></script> 标签中的 type="module"、crossorigin、nomodule
+在html标签后面加这段代码
+
+```
 <script>
   (function (win) {
     // 获取页面所有的 <script > 标签对象
@@ -41,3 +58,6 @@
     }
   })(window)
 </script>
+```
+
+即可
