@@ -8,11 +8,16 @@ export {}
 declare module 'vue' {
   export interface GlobalComponents {
     NButton: typeof import('naive-ui')['NButton']
+    NCheckbox: typeof import('naive-ui')['NCheckbox']
     NCollapse: typeof import('naive-ui')['NCollapse']
     NCollapseItem: typeof import('naive-ui')['NCollapseItem']
     NDatePicker: typeof import('naive-ui')['NDatePicker']
     NIcon: typeof import('naive-ui')['NIcon']
+    NMessageProvider: typeof import('naive-ui')['NMessageProvider']
+    NModal: typeof import('naive-ui')['NModal']
+    NPopconfirm: typeof import('naive-ui')['NPopconfirm']
     NPopselect: typeof import('naive-ui')['NPopselect']
+    NTag: typeof import('naive-ui')['NTag']
     TodoItem: typeof import('./src/components/TodoItem.vue')['default']
   }
 }

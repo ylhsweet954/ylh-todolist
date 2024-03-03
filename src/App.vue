@@ -1,8 +1,10 @@
 <template>
-  <div class="todo-container">
-    <top-area />
-    <main-area />
-  </div>
+  <n-message-provider>
+    <div class="todo-container">
+      <top-area />
+      <main-area />
+    </div>
+  </n-message-provider>
 </template>
 
 <script lang="ts">

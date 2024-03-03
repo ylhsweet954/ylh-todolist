@@ -9,7 +9,7 @@
           @delete-item="deleteItem"
           @check-todo="checkTodo"
         />
-        <template #header-extra>本周工作日工作时长：58 小时</template>
+        <template #header-extra>当前还有{{ doingList.length }}项未完成</template>
       </n-collapse-item>
       <n-collapse-item title="done" name="2">
         <todo-item-container
@@ -19,7 +19,7 @@
           @delete-item="deleteItem"
           @check-todo="checkTodo"
         />
-        <template #header-extra>本周工作日工作时长：62 小时</template>
+        <template #header-extra>当前已完成{{ doneList.length }}项</template>
       </n-collapse-item>
     </n-collapse>
   </div>
@@ -39,14 +39,14 @@ export default defineComponent({
       {
         id: '1',
         createTime: '2022-02-25',
-        doneTime: '今天',
+        endTime: '今天',
         content: '学习Vue3',
         isDone: true
       },
       {
         id: '2',
         createTime: dayjs().format('YYYY-MM-DD HH:MM:ss'),
-        doneTime: '今天',
+        endTime: '今天',
         content: '学习Vue',
         isDone: false
       }

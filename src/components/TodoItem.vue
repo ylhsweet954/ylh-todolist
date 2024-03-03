@@ -1,29 +1,47 @@
 <template>
   <div class="todo-item">
     <div class="todo-item__left">
-      <el-checkbox v-model="currentTodo.isDone" @change="checkTodo">
+      <n-checkbox v-model:checked="currentTodo.isDone" @update:checked="checkTodo">
         {{ currentTodo.content }}
-      </el-checkbox>
+      </n-checkbox>
     </div>
     <div class="todo-item__right">
-      <el-tag :type="currentTodo.isDone ? 'success' : 'primary'" size="small">
-        {{ currentTodo.isDone ? currentTodo.doneTime : currentTodo.createTime }}
-      </el-tag>
-      <el-icon @click="deleteItem"><DeleteFilled /></el-icon>
+      <n-tag :type="currentTodo.isDone ? 'success' : 'primary'" size="small">
+        {{ currentTodo.isDone ? currentTodo.endTime : currentTodo.createTime }}
+      </n-tag>
+      <n-popconfirm positive-text="ok" negative-text="手滑了" @positive-click="deleteItem">
+        <template #icon>
+          <n-icon color="red" :component="MdHand" />
+        </template>
+        <template #trigger>
+          <n-icon :component="Delete24Regular" size="24" :depth="2" />
+        </template>
+        确定要删除吗？
+      </n-popconfirm>
     </div>
+    <n-modal
+      v-model:show="showModal"
+      preset="dialog"
+      title="确认"
+      content="你确认?"
+      positive-text="确认"
+      negative-text="算了"
+      @positive-click="confirm"
+      @negative-click="cancel"
+    />
   </div>
 </template>
 
 <script lang="ts">
 import { defineComponent, watch, ref, PropType } from 'vue'
 import { TodoItem } from '../type'
-import { DeleteFilled } from '@element-plus/icons-vue'
 import { cloneDeep } from 'lodash-es'
-import { ElMessage, ElMessageBox } from 'element-plus'
+import { Delete24Regular } from '@vicons/fluent'
+import { MdHand } from '@vicons/ionicons4'
+import { useMessage } from 'naive-ui'
 
 export default defineComponent({
   name: 'TodoItem',
-  components: { DeleteFilled },
   props: {
     data: {
       type: Object as PropType<TodoItem>,
@@ -34,6 +52,8 @@ export default defineComponent({
   setup(props, { emit }) {
     const currentTodo = ref()
     const visible = ref(false)
+    const showModal = ref(false)
+    const message = useMessage()
 
     watch(
       () => props.data,
@@ -46,28 +66,35 @@ export default defineComponent({
     const deleteItem = () => {
       emit('deleteItem', props.data.id)
     }
+
     const checkTodo = (val: boolean) => {
       if (!val) {
-        ElMessageBox.confirm('还没做完？', '', {
-          confirmButtonText: '是的',
-          cancelButtonText: '手滑了',
-          type: 'warning'
-        })
-          .then(() => {
-            emit('checkTodo', currentTodo.value.id)
-            ElMessage({
-              type: 'success',
-              message: '启用成功'
-            })
-          })
-          .catch(() => {
-            currentTodo.value.isDone = true
-          })
+        showModal.value = true
       } else {
         emit('checkTodo', currentTodo.value.id)
       }
     }
-    return { currentTodo, visible, deleteItem, checkTodo }
+
+    const confirm = () => {
+      emit('checkTodo', currentTodo.value.id)
+      message.success('成功')
+    }
+
+    const cancel = () => {
+      currentTodo.value.isDone = true
+      message.warning('取消')
+    }
+    return {
+      currentTodo,
+      visible,
+      showModal,
+      deleteItem,
+      checkTodo,
+      Delete24Regular,
+      MdHand,
+      confirm,
+      cancel
+    }
   }
 })
 </script>
