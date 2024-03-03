@@ -58,9 +58,6 @@ body {
 .main-area {
   width: @todo-list-width;
   max-width: @max-todo-list-width;
-  .el-collapse + .el-collapse {
-    margin-top: 10px;
-  }
 }
 .todo-item {
   height: 30px;
@@ -80,17 +77,5 @@ body {
   .todo-item__right {
     display: flex;
     align-items: center;
-    .el-icon {
-      width: 20px;
-      height: 20px;
-      margin-left: 4px;
-      border: 1px solid #dcdfe6;
-      border-radius: 4px;
-      background-color: #fff;
-      cursor: pointer;
-    }
   }
-}
-/deep/.el-popover.el-popper {
-  min-width: 50px !important;
 }

@@ -1,20 +1,18 @@
 <template>
-  <n-message-provider>
-    <div class="todo-container">
-      <top-area />
-      <main-area />
-    </div>
-  </n-message-provider>
+  <n-theme-editor>
+    <n-message-provider>
+      <todo-list />
+    </n-message-provider>
+  </n-theme-editor>
 </template>
 
 <script lang="ts">
 import { defineComponent } from 'vue'
-import TopArea from './views/TopArea.vue'
-import MainArea from './views/MainArea.vue'
+import TodoList from './views/index.vue'
+import { NThemeEditor } from 'naive-ui'
 
 export default defineComponent({
-  name: 'TodoList',
-  components: { TopArea, MainArea },
+  components: { TodoList },
   setup() {
     return {}
   }
