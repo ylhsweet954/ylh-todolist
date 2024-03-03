@@ -1,7 +1,7 @@
 <template>
   <div class="main-area">
-    <el-collapse v-model="doingActiveNames" @change="handleDoingCollapseChange">
-      <el-collapse-item title="doing" name="1">
+    <n-collapse default-expanded-names="1">
+      <n-collapse-item title="doing" name="1">
         <todo-item-container
           v-for="item in doingList"
           :key="item.content"
@@ -9,10 +9,9 @@
           @delete-item="deleteItem"
           @check-todo="checkTodo"
         />
-      </el-collapse-item>
-    </el-collapse>
-    <el-collapse v-model="doneActiveNames" @change="handleDoneCollapseChange">
-      <el-collapse-item title="done" name="2">
+        <template #header-extra>本周工作日工作时长：58 小时</template>
+      </n-collapse-item>
+      <n-collapse-item title="done" name="2">
         <todo-item-container
           v-for="item in doneList"
           :key="item.content"
@@ -20,8 +19,9 @@
           @delete-item="deleteItem"
           @check-todo="checkTodo"
         />
-      </el-collapse-item>
-    </el-collapse>
+        <template #header-extra>本周工作日工作时长：62 小时</template>
+      </n-collapse-item>
+    </n-collapse>
   </div>
 </template>
 

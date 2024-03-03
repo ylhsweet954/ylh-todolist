@@ -1,5 +1,14 @@
 ### todolist
 
+#### 使用的组件库 Naive UI
+
+https://www.naiveui.com/zh-CN/light
+
+#### 图标
+
+https://www.xicons.org/#/zh-CN
+https://github.com/07akioni/xicons/blob/main/README.zh-CN.md#%E5%AE%89%E8%A3%85
+
 #### 待完善功能
 
 ui参照：https://dribbble.com/shots/23668199-Planio-Detail-Task

@@ -9,15 +9,6 @@ export type TodoItem = {
   level?: number // 优先级，5为最高
 }
 
-// 问候语
-export const greetings = [
-  { start: 0, end: 7, message: '凌晨好' },
-  { start: 7, end: 12, message: '早上好' },
-  { start: 12, end: 13, message: '中午好' },
-  { start: 13, end: 19, message: '下午好' },
-  { start: 19, end: 24, message: '晚上好' }
-]
-
 // todo优先级
 export const levels = [
   { level: 1, desc: '可做可不做', details: '可做可不做' },

@@ -1,15 +1,18 @@
 <template>
-  <TodoList msg="Vite + Vue" />
+  <div class="todo-container">
+    <top-area />
+    <main-area />
+  </div>
 </template>
 
 <script lang="ts">
 import { defineComponent } from 'vue'
-import TodoList from './views/index.vue'
+import TopArea from './views/TopArea.vue'
+import MainArea from './views/MainArea.vue'
 
 export default defineComponent({
-  components: {
-    TodoList
-  },
+  name: 'TodoList',
+  components: { TopArea, MainArea },
   setup() {
     return {}
   }
