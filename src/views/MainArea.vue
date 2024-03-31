@@ -1,4 +1,4 @@
-<template>
+<!-- <template>
   <div class="main-area">
     <n-collapse default-expanded-names="1">
       <n-collapse-item title="doing" name="1">
@@ -94,6 +94,19 @@ export default defineComponent({
       deleteItem,
       checkTodo
     }
+  }
+})
+</script> -->
+<template>
+  <div class="top-area">1111111</div>
+</template>
+
+<script lang="ts">
+import { defineComponent } from 'vue'
+
+export default defineComponent({
+  setup() {
+    return {}
   }
 })
 </script>

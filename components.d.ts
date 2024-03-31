@@ -7,24 +7,8 @@ export {}
 
 declare module 'vue' {
   export interface GlobalComponents {
-    NButton: typeof import('naive-ui')['NButton']
-    NCheckbox: typeof import('naive-ui')['NCheckbox']
-    NCollapse: typeof import('naive-ui')['NCollapse']
-    NCollapseItem: typeof import('naive-ui')['NCollapseItem']
-    NConfigProvider: typeof import('naive-ui')['NConfigProvider']
-    NDatePicker: typeof import('naive-ui')['NDatePicker']
-    NIcon: typeof import('naive-ui')['NIcon']
-    NLayout: typeof import('naive-ui')['NLayout']
-    NLayoutContent: typeof import('naive-ui')['NLayoutContent']
-    NLayoutFooter: typeof import('naive-ui')['NLayoutFooter']
-    NLayoutHeader: typeof import('naive-ui')['NLayoutHeader']
-    NLayoutSider: typeof import('naive-ui')['NLayoutSider']
-    NMessageProvider: typeof import('naive-ui')['NMessageProvider']
-    NModal: typeof import('naive-ui')['NModal']
-    NPopconfirm: typeof import('naive-ui')['NPopconfirm']
-    NPopselect: typeof import('naive-ui')['NPopselect']
-    NTag: typeof import('naive-ui')['NTag']
-    NThemeEditor: typeof import('naive-ui')['NThemeEditor']
+    GroupDialog: typeof import('./src/components/group-dialog.vue')['default']
+    HelloWorld: typeof import('./src/components/HelloWorld.vue')['default']
     TodoItem: typeof import('./src/components/TodoItem.vue')['default']
   }
 }

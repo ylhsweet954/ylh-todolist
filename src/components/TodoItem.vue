@@ -1,4 +1,4 @@
-<template>
+<!-- <template>
   <div class="todo-item">
     <div class="todo-item__left">
       <n-checkbox v-model:checked="currentTodo.isDone" @update:checked="checkTodo">
@@ -95,6 +95,20 @@ export default defineComponent({
       confirm,
       cancel
     }
+  }
+})
+</script> -->
+
+<template>
+  <div class="top-area">1111111</div>
+</template>
+
+<script lang="ts">
+import { defineComponent } from 'vue'
+
+export default defineComponent({
+  setup() {
+    return {}
   }
 })
 </script>

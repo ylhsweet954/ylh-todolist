@@ -6,9 +6,14 @@ export type TodoItem = {
   endTime: string // 结束时间 计划完成时间
   doneTime?: string // 完成时间 实际完成时间
   groupId?: string // 分组id
-  groupName?: string // 分组名
   level?: number // 优先级，5为最高
   customTags?: string[] // 自定义标签
+}
+
+export type TodoGroup = {
+  id: string // 分组id
+  name: string // 分组名
+  todoItems?: TodoItem[] // 该分组下的所有todo
 }
 
 // todo优先级

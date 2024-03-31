@@ -1,27 +1,30 @@
 import { defineConfig } from 'vite'
 import vue from '@vitejs/plugin-vue'
 import legacy from '@vitejs/plugin-legacy'
-import AutoImport from 'unplugin-auto-import/vite'
 import Components from 'unplugin-vue-components/vite'
-import { NaiveUiResolver } from 'unplugin-vue-components/resolvers'
+import Vuetify, { transformAssetUrls } from 'vite-plugin-vuetify'
+import ViteFonts from 'unplugin-fonts/vite'
 
 // https://vitejs.dev/config/
 export default defineConfig({
   plugins: [
-    vue(),
+    vue({
+      template: { transformAssetUrls }
+    }),
     legacy({
       targets: ['defaults', 'not IE 11']
     }),
-    AutoImport({
-      imports: [
-        'vue',
-        {
-          'naive-ui': ['useDialog', 'useMessage', 'useNotification', 'useLoadingBar']
-        }
-      ]
-    }),
-    Components({
-      resolvers: [NaiveUiResolver()]
+    Vuetify(),
+    Components(),
+    ViteFonts({
+      google: {
+        families: [
+          {
+            name: 'Roboto',
+            styles: 'wght@100;300;400;500;700;900'
+          }
+        ]
+      }
     })
   ],
   base: './'

@@ -1,4 +1,4 @@
-<template>
+<!-- <template>
   <div class="top-area">
     <div>
       <p>{{ greeting }}, Yuan Longhui!</p>
@@ -71,6 +71,19 @@ export default defineComponent({
       dayjs,
       handleDateRangeChange
     }
+  }
+})
+</script> -->
+<template>
+  <div class="top-area">1111111</div>
+</template>
+
+<script lang="ts">
+import { defineComponent } from 'vue'
+
+export default defineComponent({
+  setup() {
+    return {}
   }
 })
 </script>
